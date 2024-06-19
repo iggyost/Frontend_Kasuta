@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Frontend_Kasuta.Views.ContentPages.WelcomePage"
+             Title="WelcomePage">
+    <Grid>
+        <Image Aspect="AspectFill"
+               Source="background_image.png"></Image>
+        <Grid>
+            <Grid.GestureRecognizers>
+                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"></TapGestureRecognizer>
+            </Grid.GestureRecognizers>
+            <VerticalStackLayout HorizontalOptions="Center"
+                                 VerticalOptions="Center"
+                                 Margin="0,0,0,96">
+                <Label FontSize="54"
+                       TextColor="White">KASUTA</Label>
+                <Label FontSize="22"
+                       TextColor="White"
+                       HorizontalTextAlignment="Center">Добро пожаловать</Label>
+            </VerticalStackLayout>
+        </Grid>
+    </Grid>
+</ContentPage>

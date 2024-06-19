@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Frontend_Kasuta.Views.ContentPages.OrdersPage"
+             Title="OrdersPage"
+             Loaded="ContentPage_Loaded">
+    <Grid>
+        <Image Source="background_image.png"
+               Aspect="AspectFill"></Image>
+        <Grid Margin="16">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="96"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Label HorizontalOptions="Center"
+                   FontSize="40"
+                   TextColor="White"
+                   Text="Мои заказы"></Label>
+            <CollectionView x:Name="ordersCollectionView"
+                            Grid.Row="1">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical"
+                                       ItemSpacing="8"></LinearItemsLayout>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border BackgroundColor="White"
+                    Grid.Row="1"
+                    HeightRequest="144"
+                    StrokeShape="RoundRectangle 20">
+                            <Border.Shadow>
+                                <Shadow></Shadow>
+                            </Border.Shadow>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="96"></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Image Source="{Binding CoverImage}"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"
+                           Aspect="AspectFill"
+                           Margin="8"></Image>
+                                <Grid Grid.Column="1">
+                                    <VerticalStackLayout Spacing="4">
+                                        <Label Text="{Binding OrderNumber}"
+                                   FontSize="20"
+                                   TextColor="Black"></Label>
+                                        <Label Text="{Binding Address}"
+                                   FontSize="18"
+                                   TextColor="Black"></Label>
+                                        <Label Text="{Binding OrderDate,StringFormat='{}{0:dd.MM.yyy}'}"></Label>
+                                        <Label Text="{Binding Status}"
+                                   FontSize="18"
+                                   TextColor="Gray"></Label>
+                                    </VerticalStackLayout>
+                                </Grid>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            
+        </Grid>
+    </Grid>
+</ContentPage>

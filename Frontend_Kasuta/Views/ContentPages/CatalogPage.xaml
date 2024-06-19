@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Frontend_Kasuta.Views.ContentPages.CatalogPage"
+             Title="CatalogPage"
+             NavigationPage.HasNavigationBar="False">
+    <Grid>
+        <Image Source="background_image.png"
+               Aspect="AspectFill"></Image>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="154"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Border StrokeShape="RoundRectangle 0,0,20,20"
+                    x:Name="headerBorder"
+                    StrokeThickness="0">
+                <Grid>
+                    <Image x:Name="headerImage"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"
+                           HeightRequest="224"
+                           WidthRequest="224"></Image>
+                    <Image x:Name="headerCategoryImage"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"
+                           HeightRequest="86"
+                           WidthRequest="86"></Image>
+                    <Label x:Name="headerLabel"
+                           VerticalOptions="End"
+                           HorizontalOptions="Center"
+                           TextColor="White"
+                           FontSize="40">
+                        <!--<Label.Shadow>
+                            <Shadow Opacity="0.5"   
+                                    Offset="-4,4"></Shadow>
+                        </Label.Shadow>-->
+                    </Label>
+                </Grid>
+            </Border>
+            <Grid Grid.Row="1">
+                <CollectionView x:Name="clothesCollectionView"
+                                Margin="48,24">
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Span="2"
+                                         HorizontalItemSpacing="4"
+                                         VerticalItemSpacing="6"
+                                         Orientation="Vertical"></GridItemsLayout>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Border BackgroundColor="Transparent"
+                                    StrokeThickness="0"
+                                    StrokeShape="RoundRectangle 12"
+                                    AutomationId="{Binding ClothId}"
+                                    WidthRequest="144"
+                                    HeightRequest="176">
+                                <Border.GestureRecognizers>
+                                    <TapGestureRecognizer x:Name="clothGesture"
+                                                          Tapped="clothGesture_Tapped"></TapGestureRecognizer>
+                                </Border.GestureRecognizers>
+                                <Image Source="{Binding CoverImage}"
+                                       Aspect="AspectFill"></Image>
+                            </Border>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </Grid>
+        </Grid>
+    </Grid>
+</ContentPage>

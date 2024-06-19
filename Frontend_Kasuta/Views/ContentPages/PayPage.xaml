@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Frontend_Kasuta.Views.ContentPages.PayPage"
+             Title="PayPage"
+             Loaded="ContentPage_Loaded"
+             NavigationPage.HasNavigationBar="False">
+    <Grid>
+        <Image Source="background_image.png"
+               Aspect="AspectFill"></Image>
+        <Image Source="pay_success.png"
+               Aspect="AspectFill"
+               x:Name="successImage"
+               Opacity="0"
+               ZIndex="1"></Image>
+        <Grid Margin="16">
+            <VerticalStackLayout Spacing="16">
+                <Label HorizontalOptions="Center"
+                       FontSize="40"
+                       TextColor="White"
+                       Text="Оплата"></Label>
+                <VerticalStackLayout Spacing="8"
+                                     HorizontalOptions="Center">
+                    <Label Text="Товар"
+                           HorizontalOptions="Center"
+                       FontSize="24"
+                       TextColor="White"></Label>
+                    <Border StrokeShape="RoundRectangle 10"
+                            StrokeThickness="0"
+                            BackgroundColor="Transparent"
+                            WidthRequest="144"
+                            HeightRequest="176"
+                            HorizontalOptions="Center">
+                        <Image x:Name="clothImage"
+                           Aspect="AspectFill"></Image>
+                    </Border>
+                    <Label x:Name="clothNameLabel"
+                           HorizontalOptions="Center"
+                           FontSize="18"
+                           TextColor="White"></Label>
+                </VerticalStackLayout>
+                <VerticalStackLayout VerticalOptions="Start"
+                             Spacing="8"
+                             Margin="32,0">
+                    <VerticalStackLayout Spacing="6"
+                                 Margin="32,32">
+                        <Label Text="Номер карты"
+                               TextColor="White"
+                       FontSize="16"></Label>
+                        <Border BackgroundColor="Transparent"
+                        StrokeThickness="2"
+                        Stroke="White"
+                        StrokeShape="RoundRectangle 12">
+                            <Entry Margin="8,0"
+                                   TextColor="White"
+                           FontSize="16"
+                           CharacterSpacing="2"
+                           MaxLength="16"
+                           Keyboard="Numeric"
+                           x:Name="cardNumEntry"></Entry>
+                        </Border>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition Width="16"></ColumnDefinition>
+                                <ColumnDefinition Width="0.6*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <VerticalStackLayout>
+                                <Label Text="ММ/ГГ"
+                                       TextColor="White"></Label>
+                                <Border BackgroundColor="Transparent"
+                                StrokeThickness="2"
+                                Stroke="White"
+                                StrokeShape="RoundRectangle 12">
+                                    <DatePicker HorizontalOptions="Center"
+                                                TextColor="White"
+                                        FontSize="16"
+                                        Format="MM/yy"
+                                        x:Name="expireDp"></DatePicker>
+                                </Border>
+                            </VerticalStackLayout>
+                            <VerticalStackLayout Grid.Column="2">
+                                <Label Text="CVV-код"
+                                       TextColor="White"></Label>
+                                <Border BackgroundColor="Transparent"
+                                StrokeThickness="2"
+                                Stroke="White"
+                                StrokeShape="RoundRectangle 12">
+                                    <Entry Margin="8,0"
+                                           TextColor="White"
+                                   FontSize="16"
+                                   CharacterSpacing="4"
+                                   MaxLength="3"
+                                   Keyboard="Numeric"
+                                   HorizontalTextAlignment="Center"
+                                   x:Name="cvvCodeEntry"></Entry>
+                                </Border>
+                            </VerticalStackLayout>
+                        </Grid>
+                        <Button Text="Оплатить"
+                        BackgroundColor="#D9D9D9"
+                                TextColor="Black"
+                        Margin="0,16"
+                        CornerRadius="12"
+                        FontSize="16"
+                        x:Name="payBtn"
+                        Clicked="payBtn_Clicked"></Button>
+                    </VerticalStackLayout>
+                </VerticalStackLayout>
+            </VerticalStackLayout>
+        </Grid>
+    </Grid>
+</ContentPage>

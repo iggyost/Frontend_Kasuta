@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Frontend_Kasuta.Views.ContentPages.MainPage"
+             Title="MainPage"
+             NavigationPage.HasNavigationBar="False"
+             Loaded="ContentPage_Loaded">
+    <Grid>
+        <Image Aspect="AspectFill"
+               Source="background_with_header_image.png"></Image>
+        <Label FontSize="40"
+               HorizontalOptions="Center"
+               Margin="0,24"
+               TextColor="White">КАТАЛОГ</Label>
+        <Border BackgroundColor="#CD005B"
+                WidthRequest="64"
+                HeightRequest="96"
+                HorizontalOptions="End"
+                VerticalOptions="Center"
+                ZIndex="1"
+                StrokeShape="RoundRectangle 20,0,20,0"
+                StrokeThickness="0">
+            <Border.Shadow>
+                <Shadow></Shadow>
+            </Border.Shadow>
+            <Grid>
+                <ImageButton Source="order_icon.png"
+                             Margin="8"
+                     HorizontalOptions="Center"
+                     VerticalOptions="Center"
+                             x:Name="ordersButton"
+                             Clicked="ordersButton_Clicked"></ImageButton>
+            </Grid>
+        </Border>
+        <Grid Margin="0,128,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="156"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <CollectionView VerticalOptions="Start"
+                            x:Name="seasonsCv"
+                            Loaded="seasonsCv_Loaded">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Horizontal"
+                                       ItemSpacing="16"></LinearItemsLayout>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border StrokeShape="RoundRectangle 15"
+                                HeightRequest="144"
+                                AutomationId="{Binding SeasonId}"
+                                WidthRequest="298"
+                                VerticalOptions="Start"
+                                HorizontalOptions="Start"
+                                StrokeThickness="0"
+                                Loaded="Border_Loaded">
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer x:Name="seasonGesture"
+                                                      Tapped="seasonGesture_Tapped"></TapGestureRecognizer>
+                            </Border.GestureRecognizers>
+                            <Grid>
+                                <Image VerticalOptions="Center"
+                                       HorizontalOptions="Center"
+                                       Source="{Binding CoverImage}"
+                                       HeightRequest="86"
+                                       WidthRequest="86"></Image>
+                                <Label VerticalOptions="End"
+                                       HorizontalOptions="Center"
+                                       Text="{Binding Name}"
+                                       TextColor="White"
+                                       FontSize="32">
+                                    <Label.Shadow>
+                                        <Shadow Opacity="0.5"   
+                                                Offset="-4,4"></Shadow>
+                                    </Label.Shadow>
+                                </Label>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <CollectionView Grid.Row="1"
+                            x:Name="categoriesCv"
+                            Loaded="categoriesCv_Loaded">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical"
+                                       ItemSpacing="16"></LinearItemsLayout>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border HeightRequest="174"
+                                WidthRequest="380"
+                                StrokeShape="RoundRectangle 15"
+                                StrokeThickness="0"
+                                x:Name="borderCategory"
+                                Loaded="borderCategory_Loaded"
+                                AutomationId="{Binding CategoryId}">
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer x:Name="categoryGesture"
+                                                      Tapped="categoryGesture_Tapped"></TapGestureRecognizer>
+                            </Border.GestureRecognizers>
+                            <Grid>
+                                <Label Text="{Binding Name}"
+                                       FontSize="40"
+                                       Margin="16,0"
+                                       WidthRequest="300"
+                                       TextColor="White"
+                                       HorizontalOptions="Start"
+                                       LineBreakMode="WordWrap"
+                                       ZIndex="1">
+                                    <Label.Shadow>
+                                        <Shadow Opacity="0.5"
+                                                Offset="-4,4"></Shadow>
+                                    </Label.Shadow>
+                                </Label>
+                                <Border HeightRequest="224"
+                                        WidthRequest="224"
+                                        Margin="200,0,0,24"
+                                        StrokeThickness="0"
+                                        Background="Transparent">
+                                    <Grid>
+                                        <Image Source="{Binding CircleImage}"
+                                               HeightRequest="224"
+                                               WidthRequest="224"></Image>
+                                        <Image Source="{Binding CoverImage}"
+                                               WidthRequest="56"
+                                               HeightRequest="56"
+                                               HorizontalOptions="Center"
+                                               VerticalOptions="Center"></Image>
+                                    </Grid>
+                                </Border>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+    </Grid>
+</ContentPage>

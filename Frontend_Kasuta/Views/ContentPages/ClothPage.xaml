@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Frontend_Kasuta.Views.ContentPages.ClothPage"
+             Title="ClothPage"
+             NavigationPage.HasNavigationBar="False"
+             Loaded="ContentPage_Loaded">
+    <Grid>
+        <Image Source="background_image.png"
+               Aspect="AspectFill"></Image>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="233"></RowDefinition>
+            </Grid.RowDefinitions>
+            <VerticalStackLayout Spacing="4"
+                                 Margin="8">
+                <Border StrokeShape="RoundRectangle 10"
+                        StrokeThickness="0"
+                        BackgroundColor="Transparent"
+                        WidthRequest="234"
+                        HeightRequest="284"
+                        HorizontalOptions="Center">
+                    <Image x:Name="clothImage"
+                           Aspect="AspectFill"></Image>
+                </Border>
+                <Label Text="Кастомизация представлена:"
+                       TextColor="White"
+                       HorizontalOptions="Center"
+                       FontSize="20"></Label>
+                <Label x:Name="authorLabel"
+                       FontSize="24"
+                       HorizontalOptions="Center"
+                       TextColor="#E10F6E"></Label>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Border HeightRequest="78"
+                            WidthRequest="132"
+                            Margin="7"
+                            BackgroundColor="#E9E9E9"
+                            StrokeShape="RoundRectangle 6"
+                            StrokeThickness="0">
+                        <VerticalStackLayout HorizontalOptions="Center"
+                                             VerticalOptions="Center"
+                                             Spacing="4">
+                            <Label Text="Материал"
+                                   HorizontalOptions="Center"
+                                   TextColor="#717171"></Label>
+                            <Label x:Name="clothMaterialLabel"
+                                   HorizontalOptions="Center"
+                                   TextColor="#E10F6E"></Label>
+                        </VerticalStackLayout>
+                    </Border>
+                    <Border HeightRequest="78"
+                            WidthRequest="132"
+                            Grid.Column="1"
+                            BackgroundColor="#E9E9E9"
+                            StrokeShape="RoundRectangle 6"
+                            StrokeThickness="0">
+                        <VerticalStackLayout HorizontalOptions="Center"
+                                             VerticalOptions="Center"
+                                             Spacing="4">
+                            <Label Text="Размер"
+                                   HorizontalOptions="Center"
+                                   TextColor="#717171"></Label>
+                            <Label x:Name="clothSizeLabel"
+                                   HorizontalOptions="Center"
+                                   TextColor="#E10F6E"></Label>
+                        </VerticalStackLayout>
+                    </Border>
+                    <Border HeightRequest="78"
+                            WidthRequest="132"
+                            Grid.Row="1"
+                            BackgroundColor="#E9E9E9"
+                            StrokeShape="RoundRectangle 6"
+                            StrokeThickness="0">
+                        <VerticalStackLayout HorizontalOptions="Center"
+                                             VerticalOptions="Center"
+                                             Spacing="4">
+                            <Label Text="Пол"
+                                   HorizontalOptions="Center"
+                                   TextColor="#717171"></Label>
+                            <Label x:Name="clothGenderLabel"
+                                   HorizontalOptions="Center"
+                                   TextColor="#E10F6E"></Label>
+                        </VerticalStackLayout>
+                    </Border>
+                    <Border HeightRequest="78"
+                            WidthRequest="132"
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            BackgroundColor="#E9E9E9"
+                            StrokeShape="RoundRectangle 6"
+                            StrokeThickness="0">
+                        <VerticalStackLayout HorizontalOptions="Center"
+                                             VerticalOptions="Center"
+                                             Spacing="4">
+                            <Label Text="Состав"
+                                   HorizontalOptions="Center"
+                                   TextColor="#717171"></Label>
+                            <Label Text="Полиэстер" 
+                                   HorizontalOptions="Center"
+                                   TextColor="#E10F6E"></Label>
+                        </VerticalStackLayout>
+                    </Border>
+                </Grid>
+            </VerticalStackLayout>
+            <Grid Grid.Row="1">
+                <Image Source="bottom_wave.png"
+                       Aspect="AspectFill"></Image>
+                <Grid>
+                    <VerticalStackLayout Spacing="24"
+                                         VerticalOptions="Center">
+                        <HorizontalStackLayout Spacing="12"
+                                               HorizontalOptions="Center">
+                            <Label FontSize="24"
+                                   TextColor="White"
+                                   x:Name="clothNameLabel">
+                                <Label.Shadow>
+                                    <Shadow Opacity="0.5"   
+                                                Offset="-4,4"></Shadow>
+                                </Label.Shadow>
+                            </Label>
+                            <Label FontSize="24"
+                                   TextColor="White"
+                                   x:Name="clothCostLabel">
+                                <Label.Shadow>
+                                    <Shadow Opacity="0.5"   
+                                                Offset="-4,4"></Shadow>
+                                </Label.Shadow>
+                            </Label>
+                        </HorizontalStackLayout>
+                        <Button CornerRadius="10"
+                                BackgroundColor="#D9D9D9"
+                                Text="Купить сейчас"
+                                TextColor="Black"
+                                FontSize="15"
+                                Margin="32,0"
+                                x:Name="buyButton"
+                                Clicked="buyButton_Clicked"></Button>
+                    </VerticalStackLayout>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</ContentPage>
